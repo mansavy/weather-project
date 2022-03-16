@@ -4,7 +4,174 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>New Wave Weather</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+
+    <script
+      src="https://kit.fontawesome.com/af9f6ae742.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hubballi&family=Permanent+Marker&display=swap"
+      rel="stylesheet"
+    />
+    <link ref="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <div class="card">
+        <div class="card-header">
+          <div class="search">
+            <form id="city-search">
+              <input
+                type="search"
+                id="city-input"
+                placeholder="Destination Unknown (enter city)"
+                size="35"
+              />
+            </form>
+            <button>Where are you?</button>
+          </div>
+          <div class="nav">
+            <ul>
+              <li>New York</li>
+              <li>London</li>
+              <li>Paris</li>
+              <li>Munich</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="container">
+            <div class="row">
+              <div class="col-5 weather-box">
+                <ul>
+                  <li class="stats">Feels like: <span id="feels"></span>°C</li>
+                  <li class="stats">Humidity: <span id="humidity"> </span>%</li>
+                  <li class="stats">
+                    Wind gust: <span id="wind-gust"></span> km/h
+                  </li>
+                  <li class="stats" id="sunrise">Sunrise: 5:54 a.m.</li>
+                  <li class="stats" id="sunset">Sunset: 6:09 p.m.</li>
+                </ul>
+              </div>
+              <div class="col-1"></div>
+              <div class="col-5 main-weather">
+                <h2>
+                  <span id="main-city">Rio,</span
+                  ><span id="main-country"> BR</span>
+                </h2>
+                <br />
+                <h3 class="currentDayTime"></h3>
+                <i class="fa-solid fa-cloud-moon"></i>
+                <span class="temperature"></span>
+                <span class="degree">
+                  <a id="celsius" href="#">°C</a> |
+                  <a id="fahrenheit" href="#">°F</a>
+                </span>
+                <br />
+                <small>Last updated: Thursday, 7:24 pm</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row future-temps">
+          <div class="col">
+            <div class="card future-card">
+              <div class="card-body">
+                <h5 class="card-title">Monday</h5>
+                <span class="card-text">
+                  <ul>
+                    <li class="future-stats">Sunny</li>
+                    <li class="future-stats">18°C</li>
+                    <li class="future-stats">Humidity: <br />100%</li>
+                  </ul>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card future-card">
+              <div class="card-body">
+                <h5 class="card-title">Tuesday</h5>
+                <span class="card-text">
+                  <ul>
+                    <li class="future-stats">Windy</li>
+                    <li class="future-stats">15°C</li>
+                    <li class="future-stats">
+                      Humidity: <br />
+                      85%
+                    </li>
+                  </ul>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card future-card">
+              <div class="card-body">
+                <h5 class="card-title">Wednesday</h5>
+                <span class="card-text">
+                  <ul>
+                    <li class="future-stats">Rainy</li>
+                    <li class="future-stats">10°C</li>
+                    <li class="future-stats">Humidity: <br />100%</li>
+                  </ul>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card future-card">
+              <div class="card-body">
+                <h5 class="card-title">Thursday</h5>
+                <span class="card-text">
+                  <ul>
+                    <li class="future-stats">Thunderstorms</li>
+                    <li class="future-stats">20°C</li>
+                    <li class="future-stats">Humidity: <br />100%</li>
+                  </ul>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card future-card">
+              <div class="card-body">
+                <h5 class="card-title">Friday</h5>
+                <span class="card-text">
+                  <ul>
+                    <li class="future-stats">Snow</li>
+                    <li class="future-stats">2°C</li>
+                    <li class="future-stats">Humidity: <br />96%</li>
+                  </ul>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div class="card-footer">
+          "I love to feel the rain in the summertime." - The Alarm
+        </div>
+      </div>
+    </div>
+    <br />
+    <footer>
+      Background credit:
+      <a href="https://www.vecteezy.com">Vecteezy.com </a>
+    </footer>
+    <script src="src/index.js" ;></script>
+  </body>
 </html>

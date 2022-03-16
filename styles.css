@@ -1,0 +1,119 @@
+body {
+  padding: 40px 150px;
+  background-image: url("https://bpermin.files.wordpress.com/2022/03/uo91.png");
+  background-size: contain;
+  font-family: "Hubballi", cursive;
+}
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+li {
+  display: inline;
+  padding: 5px;
+}
+
+h2 {
+  font-family: "Permanent Marker", cursive;
+}
+
+h3 {
+  font-size: 20px;
+  position: relative;
+  top: -30px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+form {
+  display: inline;
+}
+
+button {
+  display: inline;
+  background-color: #f5ec2f;
+  border-radius: 5px;
+  border: none;
+  color: black;
+  padding: 5px 10px;
+  margin-left: 10px;
+  box-shadow: 10px 10px 20px rgba(234, 231, 17, 0.2);
+}
+
+.card {
+  border: 2px solid black;
+}
+
+.search {
+  display: inline;
+  float: left;
+}
+
+.nav {
+  display: inline;
+  float: right;
+}
+
+.card-header {
+  background-color: #e9467a;
+}
+
+.col-5 {
+  text-align: center;
+}
+
+.weather-box {
+  border: 2px solid #f5ec2f;
+  transform: skew(-10deg) rotate(2deg);
+  box-shadow: 10px 10px 20px rgba(234, 231, 17, 0.2);
+  padding-top: 20px;
+  position: relative;
+  left: 19px;
+}
+
+.stats {
+  display: block;
+  padding: 10px 0;
+}
+
+.fa-cloud-moon {
+  font-size: 100px;
+}
+
+.temperature {
+  font-size: 100px;
+}
+
+.degree {
+  font-size: 20px;
+  position: relative;
+  top: -30px;
+}
+
+.card-title {
+  font-family: "Permanent Marker", cursive;
+}
+
+.card-footer {
+  text-align: center;
+  background-color: #e9467a;
+  color: black;
+}
+
+.future-temps {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.future-stats {
+  display: block;
+  padding: 10px 0;
+  font-size: 20px;
+}
+
+.future-card {
+  background-color: #f5ec2f;
+}
