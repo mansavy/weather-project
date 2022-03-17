@@ -43,6 +43,10 @@ button {
   box-shadow: 10px 10px 20px rgba(234, 231, 17, 0.2);
 }
 
+footer {
+  color: #e9467a;
+}
+
 .card {
   border: 2px solid black;
 }
@@ -116,4 +120,8 @@ button {
 
 .future-card {
   background-color: #f5ec2f;
+}
+
+.footerLink {
+  color: #e9467a;
 }
