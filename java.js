@@ -47,6 +47,20 @@ function formatDate(timestamp) {
   return `${day} ${hour}:${minute}`;
 }
 
+function formatTime(timestamp) {
+  let date = new Date(timestamp);
+  let hour = date.getHours();
+  let minute = date.getMinutes();
+
+  if (minute < 10) {
+    minute = `0${minute}`;
+  }
+  if (hour < 10) {
+    hour = `0${hour}`;
+  }
+  return `${hour}:${minute}`;
+}
+
 function changeTempScale(event) {
   event.preventDefault();
   let temperature = document.querySelector(".temperature");
@@ -85,9 +99,13 @@ function displayWeather(response) {
   let wind = response.data.wind.speed;
   let windK = Math.round((wind * 18) / 5);
   document.querySelector("#wind-gust").innerHTML = `${windK}`;
+  document.querySelector("#sunrise").innerHTML = formatTime(
+    response.data.sys.sunrise * 1000
+  );
+  document.querySelector("#sunset").innerHTML = formatTime(
+    response.data.sys.sunset * 1000
+  );
 
-  document.querySelector("#sunrise").innerHTML = response.data.sys.sunrise;
-  document.querySelector("#sunset").innerHTML = response.data.sys.sunset;
   document.querySelector("#updated").innerHTML = formatDate(
     response.data.dt * 1000
   );
