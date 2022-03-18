@@ -126,3 +126,8 @@ footer {
 .footerLink {
   color: #e9467a;
 }
+
+#icon {
+  height: 100px;
+  width: 100px;
+}
