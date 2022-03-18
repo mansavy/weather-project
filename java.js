@@ -22,6 +22,31 @@ let days = [
 let day = days[now.getDay()];
 h3.innerHTML = `${day} ${hour}:${minute}`;
 
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
+  let hour = date.getHours();
+  let minute = date.getMinutes();
+
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
+  let day = days[date.getDay()];
+  if (minute < 10) {
+    minute = `0${minute}`;
+  }
+  if (hour < 10) {
+    hour = `0${hour}`;
+  }
+  return `${day} ${hour}:${minute}`;
+}
+
 function changeTempScale(event) {
   event.preventDefault();
   let temperature = document.querySelector(".temperature");
@@ -63,6 +88,9 @@ function displayWeather(response) {
 
   document.querySelector("#sunrise").innerHTML = response.data.sys.sunrise;
   document.querySelector("#sunset").innerHTML = response.data.sys.sunset;
+  document.querySelector("#updated").innerHTML = formatDate(
+    response.data.dt * 1000
+  );
 }
 
 function searchCity(city) {
