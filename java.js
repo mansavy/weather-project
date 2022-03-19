@@ -65,6 +65,9 @@ function changeTempScaleC(event) {
   event.preventDefault();
   document.querySelector(".temperature").innerHTML =
     Math.round(celsiusTemperature);
+  document.querySelector("#feels").innerHTML = `${Math.round(
+    feelsTemperature
+  )}°C`;
   celsius.classList.add("active");
   fahrenheit.classList.remove("active");
 }
@@ -72,9 +75,11 @@ function changeTempScaleC(event) {
 function changeScaleF(event) {
   event.preventDefault();
   let temperature = document.querySelector(".temperature");
-  let temp = temperature.innerHTML;
   let total = Math.round((celsiusTemperature * 9) / 5 + 32);
   temperature.innerHTML = total;
+  document.querySelector("#feels").innerHTML = `${Math.round(
+    (feelsTemperature * 9) / 5 + 32
+  )}°F`;
   celsius.classList.remove("active");
   fahrenheit.classList.add("active");
 }
@@ -90,10 +95,10 @@ function displayWeather(response) {
 
   document.querySelector("#description").innerHTML =
     response.data.weather[0].description;
-
-  document.querySelector("#feels").innerHTML = Math.round(
-    response.data.main.feels_like
-  );
+  feelsTemperature = response.data.main.feels_like;
+  document.querySelector("#feels").innerHTML = `${Math.round(
+    feelsTemperature
+  )}°C`;
 
   document.querySelector("#humidity").innerHTML = Math.round(
     response.data.main.humidity
@@ -160,5 +165,6 @@ let celsius = document.querySelector("#celsius");
 celsius.addEventListener("click", changeTempScaleC);
 
 let celsiusTemperature = null;
+let feelsTemperature = null;
 
 searchCity("Rio de janeiro");
