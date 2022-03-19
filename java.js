@@ -63,31 +63,33 @@ function formatTime(timestamp) {
 
 function changeTempScale(event) {
   event.preventDefault();
-  let temperature = document.querySelector(".temperature");
-  temperature.innerHTML = "-10";
+  document.querySelector(".temperature").innerHTML =
+    Math.round(celsiusTemperature);
 }
 
 let celsius = document.querySelector("#celsius");
 celsius.addEventListener("click", changeTempScale);
 
+let celsiusTemperature = null;
+
 function changeScale(event) {
   event.preventDefault();
   let temperature = document.querySelector(".temperature");
   let temp = temperature.innerHTML;
-  let total = Math.round((temp * 9) / 5 + 32);
+  let total = Math.round((celsiusTemperature * 9) / 5 + 32);
   temperature.innerHTML = total;
 }
 let fahrenheit = document.querySelector("#fahrenheit");
 fahrenheit.addEventListener("click", changeScale);
 
 function displayWeather(response) {
+  celsiusTemperature = response.data.main.temp;
   document.querySelector("#main-city").innerHTML = response.data.name;
   document.querySelector(
     "#main-country"
   ).innerHTML = `, ${response.data.sys.country}`;
-  document.querySelector(".temperature").innerHTML = Math.round(
-    response.data.main.temp
-  );
+  document.querySelector(".temperature").innerHTML =
+    Math.round(celsiusTemperature);
 
   document.querySelector("#feels").innerHTML = Math.round(
     response.data.main.feels_like

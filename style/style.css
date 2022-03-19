@@ -127,7 +127,11 @@ footer {
   color: #e9467a;
 }
 
-#icon {
-  height: 100px;
-  width: 100px;
+.active {
+  color: black;
+  cursor: default;
+}
+
+.active:hover {
+  text-decoration: none;
 }
