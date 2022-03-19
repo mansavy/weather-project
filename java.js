@@ -61,26 +61,30 @@ function formatTime(timestamp) {
   return `${hour}:${minute}`;
 }
 
-function changeTempScale(event) {
+function changeTempScaleC(event) {
   event.preventDefault();
   document.querySelector(".temperature").innerHTML =
     Math.round(celsiusTemperature);
+  celsius.classList.add("active");
+  fahrenheit.classList.remove("active");
 }
 
 let celsius = document.querySelector("#celsius");
-celsius.addEventListener("click", changeTempScale);
+celsius.addEventListener("click", changeTempScaleC);
 
 let celsiusTemperature = null;
 
-function changeScale(event) {
+function changeScaleF(event) {
   event.preventDefault();
   let temperature = document.querySelector(".temperature");
   let temp = temperature.innerHTML;
   let total = Math.round((celsiusTemperature * 9) / 5 + 32);
   temperature.innerHTML = total;
+  celsius.classList.remove("active");
+  fahrenheit.classList.add("active");
 }
 let fahrenheit = document.querySelector("#fahrenheit");
-fahrenheit.addEventListener("click", changeScale);
+fahrenheit.addEventListener("click", changeScaleF);
 
 function displayWeather(response) {
   celsiusTemperature = response.data.main.temp;
