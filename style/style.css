@@ -73,18 +73,15 @@ footer {
   border: 2px solid #f5ec2f;
   transform: skew(-10deg) rotate(2deg);
   box-shadow: 10px 10px 20px rgba(234, 231, 17, 0.2);
-  padding-top: 20px;
+  padding-top: 23px;
   position: relative;
   left: 19px;
+  font-size: 17px;
 }
 
 .stats {
   display: block;
   padding: 10px 0;
-}
-
-.fa-cloud-moon {
-  font-size: 100px;
 }
 
 .temperature {
@@ -129,4 +126,17 @@ footer {
 .active {
   color: black;
   cursor: default;
+}
+
+.timeDescription {
+  font-size: 20px;
+}
+
+#icon {
+  position: relative;
+  bottom: 25px;
+}
+
+#description {
+  text-transform: capitalize;
 }

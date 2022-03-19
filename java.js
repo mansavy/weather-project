@@ -69,11 +69,6 @@ function changeTempScaleC(event) {
   fahrenheit.classList.remove("active");
 }
 
-let celsius = document.querySelector("#celsius");
-celsius.addEventListener("click", changeTempScaleC);
-
-let celsiusTemperature = null;
-
 function changeScaleF(event) {
   event.preventDefault();
   let temperature = document.querySelector(".temperature");
@@ -83,8 +78,6 @@ function changeScaleF(event) {
   celsius.classList.remove("active");
   fahrenheit.classList.add("active");
 }
-let fahrenheit = document.querySelector("#fahrenheit");
-fahrenheit.addEventListener("click", changeScaleF);
 
 function displayWeather(response) {
   celsiusTemperature = response.data.main.temp;
@@ -94,6 +87,9 @@ function displayWeather(response) {
   ).innerHTML = `, ${response.data.sys.country}`;
   document.querySelector(".temperature").innerHTML =
     Math.round(celsiusTemperature);
+
+  document.querySelector("#description").innerHTML =
+    response.data.weather[0].description;
 
   document.querySelector("#feels").innerHTML = Math.round(
     response.data.main.feels_like
@@ -138,9 +134,6 @@ function handleSubmit(event) {
   searchCity(city);
 }
 
-let form = document.querySelector("#city-search");
-form.addEventListener("submit", handleSubmit);
-
 function getPosition(response) {
   let key = "bd72cea685abd0c8d8f5b8f11becd620";
   let lat = response.coords.latitude;
@@ -154,7 +147,18 @@ function showPosition(event) {
   navigator.geolocation.getCurrentPosition(getPosition);
 }
 
+let form = document.querySelector("#city-search");
+form.addEventListener("submit", handleSubmit);
+
 let button = document.querySelector("button");
 button.addEventListener("click", showPosition);
+
+let fahrenheit = document.querySelector("#fahrenheit");
+fahrenheit.addEventListener("click", changeScaleF);
+
+let celsius = document.querySelector("#celsius");
+celsius.addEventListener("click", changeTempScaleC);
+
+let celsiusTemperature = null;
 
 searchCity("Rio de janeiro");
