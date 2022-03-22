@@ -27,16 +27,6 @@ function formatDate(timestamp) {
   let hour = date.getHours();
   let minute = date.getMinutes();
 
-  let days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-
   let day = days[date.getDay()];
   if (minute < 10) {
     minute = `0${minute}`;
@@ -125,6 +115,8 @@ function displayWeather(response) {
   document
     .querySelector("#icon")
     .setAttribute("alt", response.data.weather[0].description);
+
+  getForecast(response.data.coord);
 }
 
 function searchCity(city) {
@@ -152,33 +144,61 @@ function showPosition(event) {
   navigator.geolocation.getCurrentPosition(getPosition);
 }
 
-function displayForecast() {
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
+  return days[day];
+}
+
+function displayForecast(response) {
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector(".future-temps");
-
-  let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
-
   let forecastHTML = `<div class="row">`;
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      ` <div class="col">
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        ` <div class="col">
             <div class="card future-card">
               <div class="card-body">
-                <h5 class="card-title">${day}</h5>
+                <h5 class="card-title">${formatDay(forecastDay.dt)}</h5>
                 <span class="card-text">
                   <ul>
-                    <li class="future-stats">Sunny</li>
-                    <li class="future-stats">18°C</li>
-                    <li class="future-stats">Humidity: <br />100%</li>
+                    <li class="future-stats">${
+                      forecastDay.weather[0].description
+                    }</li>
+                    <li class="future-stats"> ${Math.round(
+                      forecastDay.temp.max
+                    )}° | ${Math.round(forecastDay.temp.min)}°</li>
+                    <li class="future-stats">Humidity: <br /> ${
+                      forecastDay.humidity
+                    }%</li>
                   </ul>
                 </span>
               </div>
             </div>
           </div>`;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  let key = "bd72cea685abd0c8d8f5b8f11becd620";
+  let url = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${key}&units=metric`;
+  axios.get(url).then(displayForecast);
 }
 
 let form = document.querySelector("#city-search");
@@ -197,4 +217,3 @@ let celsiusTemperature = null;
 let feelsTemperature = null;
 
 searchCity("Rio de janeiro");
-displayForecast();
