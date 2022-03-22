@@ -164,7 +164,7 @@ function displayForecast() {
       ` <div class="col">
             <div class="card future-card">
               <div class="card-body">
-                <h5 class="card-title">Monday</h5>
+                <h5 class="card-title">${day}</h5>
                 <span class="card-text">
                   <ul>
                     <li class="future-stats">Sunny</li>
