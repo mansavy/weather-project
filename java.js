@@ -152,6 +152,35 @@ function showPosition(event) {
   navigator.geolocation.getCurrentPosition(getPosition);
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector(".future-temps");
+
+  let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      ` <div class="col">
+            <div class="card future-card">
+              <div class="card-body">
+                <h5 class="card-title">Monday</h5>
+                <span class="card-text">
+                  <ul>
+                    <li class="future-stats">Sunny</li>
+                    <li class="future-stats">18°C</li>
+                    <li class="future-stats">Humidity: <br />100%</li>
+                  </ul>
+                </span>
+              </div>
+            </div>
+          </div>`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 let form = document.querySelector("#city-search");
 form.addEventListener("submit", handleSubmit);
 
@@ -168,3 +197,4 @@ let celsiusTemperature = null;
 let feelsTemperature = null;
 
 searchCity("Rio de janeiro");
+displayForecast();
