@@ -177,10 +177,10 @@ function displayForecast(response) {
                     <li class="future-stats future-description">${
                       forecastDay.weather[0].description
                     }</li>
-                    <li class="future-stats"> ${Math.round(
+                    <li class="future-stats future-description"> ${Math.round(
                       forecastDay.temp.max
                     )}° | ${Math.round(forecastDay.temp.min)}°</li>
-                    <li class="future-stats">Humidity: <br /> ${
+                    <li class="future-stats future-description">Humidity: <br /> ${
                       forecastDay.humidity
                     }%</li>
                   </ul>

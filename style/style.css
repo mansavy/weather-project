@@ -1,5 +1,5 @@
 body {
-  padding: 40px 150px;
+  padding: 30px 150px;
   background-image: url("https://bpermin.files.wordpress.com/2022/03/uo91.png");
   background-size: contain;
   font-family: "Hubballi", cursive;
@@ -107,6 +107,7 @@ footer {
 .future-temps {
   text-align: center;
   margin: 0 auto;
+  padding-top: 20px;
 }
 
 .future-stats {
