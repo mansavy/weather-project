@@ -170,11 +170,11 @@ function displayForecast(response) {
         forecastHTML +
         ` <div class="col">
             <div class="card future-card">
-              <div class="card-body">
+              <div class="card-body forecast-body">
                 <h5 class="card-title">${formatDay(forecastDay.dt)}</h5>
                 <span class="card-text">
                   <ul>
-                    <li class="future-stats">${
+                    <li class="future-stats future-description">${
                       forecastDay.weather[0].description
                     }</li>
                     <li class="future-stats"> ${Math.round(
