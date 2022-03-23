@@ -1,32 +1,18 @@
-let h3 = document.querySelector(".currentDayTime");
-let now = new Date();
-let hour = now.getHours();
-if (hour < 10) {
-  hour = `0${hour}`;
-}
-let minute = now.getMinutes();
-now.getMinutes();
-if (minute < 10) {
-  minute = `0${minute}`;
-}
-
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-let day = days[now.getDay()];
-h3.innerHTML = `${day} ${hour}:${minute}`;
-
+//last updated
 function formatDate(timestamp) {
   let date = new Date(timestamp);
   let hour = date.getHours();
   let minute = date.getMinutes();
 
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
   let day = days[date.getDay()];
   if (minute < 10) {
     minute = `0${minute}`;
@@ -34,9 +20,10 @@ function formatDate(timestamp) {
   if (hour < 10) {
     hour = `0${hour}`;
   }
+
   return `${day} ${hour}:${minute}`;
 }
-
+//sunrise and sunset
 function formatTime(timestamp) {
   let date = new Date(timestamp);
   let hour = date.getHours();
@@ -49,6 +36,37 @@ function formatTime(timestamp) {
     hour = `0${hour}`;
   }
   return `${hour}:${minute}`;
+}
+//local time of searched city
+function formatLocalTime(date, timezone) {
+  let local = date.getTimezoneOffset() * 60 * 1000;
+  let offset = timezone * 1000;
+  let time = date.getTime() + local + offset;
+
+  let now = new Date(time);
+
+  let hour = now.getHours();
+  let minute = now.getMinutes();
+
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
+  let day = days[now.getDay()];
+
+  if (minute < 10) {
+    minute = `0${minute}`;
+  }
+  if (hour < 10) {
+    hour = `0${hour}`;
+  }
+  return `${day}, ${hour}:${minute}`;
 }
 
 function changeTempScaleC(event) {
@@ -80,6 +98,11 @@ function displayWeather(response) {
   document.querySelector(
     "#main-country"
   ).innerHTML = `, ${response.data.sys.country}`;
+  document.querySelector(".currentDayTime").innerHTML = formatLocalTime(
+    new Date(),
+    response.data.timezone
+  );
+
   document.querySelector(".temperature").innerHTML =
     Math.round(celsiusTemperature);
 
