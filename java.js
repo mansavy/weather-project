@@ -24,19 +24,21 @@ function formatDate(timestamp) {
   return `${day} ${hour}:${minute}`;
 }
 //sunrise and sunset
+
 function formatTime(timestamp) {
   let date = new Date(timestamp);
-  let hour = date.getHours();
-  let minute = date.getMinutes();
+  let hours = date.getUTCHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getUTCMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
 
-  if (minute < 10) {
-    minute = `0${minute}`;
-  }
-  if (hour < 10) {
-    hour = `0${hour}`;
-  }
-  return `${hour}:${minute}`;
+  return `${hours}:${minutes}`;
 }
+
 //local time of searched city
 function formatLocalTime(date, timezone) {
   let local = date.getTimezoneOffset() * 60 * 1000;
@@ -119,11 +121,16 @@ function displayWeather(response) {
   let wind = response.data.wind.speed;
   let windK = Math.round((wind * 18) / 5);
   document.querySelector("#wind-gust").innerHTML = `${windK}`;
+
+  let localUnixTimestamp = response.data.sys.sunrise + response.data.timezone;
+
   document.querySelector("#sunrise").innerHTML = formatTime(
-    response.data.sys.sunrise * 1000
+    localUnixTimestamp * 1000
   );
+
+  let localUnixTimestampSet = response.data.sys.sunset + response.data.timezone;
   document.querySelector("#sunset").innerHTML = formatTime(
-    response.data.sys.sunset * 1000
+    localUnixTimestampSet * 1000
   );
 
   document.querySelector("#updated").innerHTML = formatDate(
