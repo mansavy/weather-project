@@ -2,7 +2,7 @@ body {
   background-image: url("https://bpermin.files.wordpress.com/2022/03/uo91.png");
   background-size: contain;
   font-family: "Hubballi", cursive;
-  padding-top: 35px;
+  padding: 35px 90px 0;
 }
 ul {
   list-style-type: none;
@@ -26,6 +26,7 @@ h3 {
 
 a {
   text-decoration: none;
+  color: #61cece;
 }
 form {
   display: inline;
@@ -105,6 +106,7 @@ footer {
   text-align: center;
   background-color: #e9467a;
   color: black;
+  font-size: 20px;
 }
 
 .future-temps {
@@ -150,6 +152,8 @@ footer {
 #icon {
   position: relative;
   bottom: 25px;
+  width: 90px;
+  height: 90px;
 }
 
 #description {

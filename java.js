@@ -136,15 +136,53 @@ function displayWeather(response) {
   document.querySelector("#updated").innerHTML = formatDate(
     response.data.dt * 1000
   );
-  document
-    .querySelector("#icon")
-    .setAttribute(
-      "src",
-      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-    );
-  document
-    .querySelector("#icon")
-    .setAttribute("alt", response.data.weather[0].description);
+  let quote = document.querySelector(".card-footer");
+  let icon = document.querySelector("#icon");
+  let iconElement = response.data.weather[0].icon;
+
+  if (iconElement === "01d" || iconElement === "01n") {
+    icon.setAttribute("src", "media/sun.gif");
+    quote.innerHTML = `“I’ve been watching blue skies come and go." - A-ha`;
+  }
+  if (iconElement === "02d" || iconElement === "03d") {
+    icon.setAttribute("src", "media/cloudy.gif");
+    quote.innerHTML = `“Like the sun coming out, I just know that something good is gonna happen, we’ve been cloudbusting.” - Kate Bush`;
+  }
+
+  if (iconElement === "02n" || iconElement === "03n") {
+    icon.setAttribute("src", "media/cloudy-night.gif");
+    quote.innerHTML = `"A cloud appears above your head, a beam of light comes shining down on you.” - A Flock of Seagulls`;
+  }
+
+  if (iconElement === "04d" || iconElement === "04n") {
+    icon.setAttribute("src", "media/clouds.gif");
+    quote.innerHTML = `“Into the cloudburst overhead, I wanna get my face wet, there’s gonna be a cloudburst here,” - Thomas Dolby`;
+  }
+
+  if (iconElement === "09d" || iconElement === "09n") {
+    icon.setAttribute("src", "media/drizzle.gif");
+    quote.innerHTML = `"Open the sky and let her come down, here comes the rain, here she comes again.” - The Cult`;
+  }
+
+  if (iconElement === "10d" || iconElement === "10n") {
+    icon.setAttribute("src", "media/rain.gif");
+    quote.innerHTML = `“Here comes the rain again, falling on my head like a memory, falling on my head like a new emotion.” - Eurythmics`;
+  }
+
+  if (iconElement === "11d" || iconElement === "11n") {
+    icon.setAttribute("src", "media/storm.gif");
+    quote.innerHTML = `“Can't you hear, can't you hear the thunder? You better run, you better take cover.” - Men at Work`;
+  }
+
+  if (iconElement === "13d" || iconElement === "13n") {
+    icon.setAttribute("src", "media/snow.gif");
+    quote.innerHTML = `“And the ground is frozen through, and you’re driven, like the snow, pure in heart.” - Sisters of Mercy`;
+  }
+
+  if (iconElement === "50d" || iconElement === "50n") {
+    icon.setAttribute("src", "media/foggy.gif");
+    quote.innerHTML = `"An aggressive nature does not make the weaker man a gladiator inside this misty circle.” - Dead or Alive`;
+  }
 
   getForecast(response.data.coord);
 }
