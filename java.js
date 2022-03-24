@@ -181,7 +181,7 @@ function displayWeather(response) {
 
   if (iconElement === "50d" || iconElement === "50n") {
     icon.setAttribute("src", "media/foggy.gif");
-    quote.innerHTML = `"An aggressive nature does not make the weaker man a gladiator inside this misty circle.” - Dead or Alive`;
+    quote.innerHTML = `"An aggressive nature does not make the weaker man a gladiator, inside this misty circle.” - Dead or Alive`;
   }
 
   getForecast(response.data.coord);
