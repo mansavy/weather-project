@@ -78,6 +78,9 @@ function changeTempScaleC(event) {
   document.querySelector("#feels").innerHTML = `${Math.round(
     feelsTemperature
   )}°C`;
+  document.querySelector("#wind-gust").innerHTML = `${Math.round(
+    (windSpeed * 18) / 5
+  )} km/h`;
   celsius.classList.add("active");
   fahrenheit.classList.remove("active");
 }
@@ -90,6 +93,9 @@ function changeScaleF(event) {
   document.querySelector("#feels").innerHTML = `${Math.round(
     (feelsTemperature * 9) / 5 + 32
   )}°F`;
+  let windy = document.querySelector("#wind-gust");
+  let windyTotal = `${Math.round((windSpeed * 18) / 5 / 1.609)} mph`;
+  windy.innerHTML = windyTotal;
   celsius.classList.remove("active");
   fahrenheit.classList.add("active");
 }
@@ -118,9 +124,9 @@ function displayWeather(response) {
   document.querySelector("#humidity").innerHTML = Math.round(
     response.data.main.humidity
   );
-  let wind = response.data.wind.speed;
-  let windK = Math.round((wind * 18) / 5);
-  document.querySelector("#wind-gust").innerHTML = `${windK}`;
+  windSpeed = response.data.wind.speed;
+  let windK = Math.round((windSpeed * 18) / 5);
+  document.querySelector("#wind-gust").innerHTML = `${windK} km/h`;
 
   let localUnixTimestamp = response.data.sys.sunrise + response.data.timezone;
 
@@ -327,5 +333,6 @@ celsius.addEventListener("click", changeTempScaleC);
 
 let celsiusTemperature = null;
 let feelsTemperature = null;
+let windSpeed = null;
 
 searchCity("Rio de janeiro");
