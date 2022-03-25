@@ -177,7 +177,7 @@ function displayWeather(response) {
 
   if (iconElement === "10d" || iconElement === "10n") {
     icon.setAttribute("src", "media/rain.gif");
-    quote.innerHTML = `“Here comes the rain again, falling on my head like a memory, falling on my head like a new emotion.” - Eurythmics`;
+    quote.innerHTML = `“Here comes the rain again, falling on my head like a memory.” - Eurythmics`;
   }
 
   if (iconElement === "11d" || iconElement === "11n") {
@@ -192,7 +192,7 @@ function displayWeather(response) {
 
   if (iconElement === "50d" || iconElement === "50n") {
     icon.setAttribute("src", "media/foggy.gif");
-    quote.innerHTML = `"An aggressive nature does not make the weaker man a gladiator, inside this misty circle.” - Dead or Alive`;
+    quote.innerHTML = `"My head's in the clouds, yeah I get misty just holding your hand.” - Dead or Alive`;
   }
 
   getForecast(response.data.coord);
