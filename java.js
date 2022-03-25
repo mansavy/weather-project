@@ -251,7 +251,6 @@ function displayForecast(response) {
             <div class="card future-card">
               <div class="card-body forecast-body">
                 <h5 class="card-title">${formatDay(forecastDay.dt)}</h5>
-              
                 <span class="card-text">
                   <ul>
                     <li class="future-stats future-description">${
