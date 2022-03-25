@@ -146,9 +146,14 @@ function displayWeather(response) {
   let icon = document.querySelector("#icon");
   let iconElement = response.data.weather[0].icon;
 
-  if (iconElement === "01d" || iconElement === "01n") {
+  if (iconElement === "01d") {
     icon.setAttribute("src", "media/sun.gif");
     quote.innerHTML = `“I’ve been watching blue skies come and go." - A-ha`;
+  }
+
+  if (iconElement === "01n" || iconElement === "01n") {
+    icon.setAttribute("src", "media/night.gif");
+    quote.innerHTML = `"There's a moon in the sky, it’s called the moon.” - The B-52’s`;
   }
   if (iconElement === "02d" || iconElement === "03d") {
     icon.setAttribute("src", "media/cloudy.gif");
