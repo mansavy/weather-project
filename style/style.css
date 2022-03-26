@@ -6,7 +6,8 @@ body {
 }
 ul {
   list-style-type: none;
-  padding-left: 0;
+  padding: 0;
+  margin: 0;
 }
 
 li {
@@ -78,6 +79,7 @@ footer {
 
 .card-header {
   background-color: #e9467a;
+  padding-bottom: 0;
 }
 
 .col-5 {
@@ -189,4 +191,10 @@ footer {
 
 #footerLink {
   color: #e9467a;
+}
+
+#popMusic {
+  font-size: 15px;
+  text-align: center;
+  padding: 0;
 }
