@@ -148,50 +148,60 @@ function displayWeather(response) {
 
   if (iconElement === "01d") {
     icon.setAttribute("src", "media/sun.gif");
+    icon.setAttribute("alt", "sun gif");
     quote.innerHTML = `“I’ve been watching blue skies come and go." - A-ha`;
   }
 
   if (iconElement === "01n" || iconElement === "01n") {
     icon.setAttribute("src", "media/night.gif");
+    icon.setAttribute("alt", "moon gif");
     quote.innerHTML = `"There's a moon in the sky, it’s called the moon.” - The B-52’s`;
   }
   if (iconElement === "02d" || iconElement === "03d") {
     icon.setAttribute("src", "media/cloudy.gif");
+    icon.setAttribute("alt", "cloud gif");
     quote.innerHTML = `“Like the sun coming out, I just know that something good is gonna happen, we’ve been cloudbusting.” - Kate Bush`;
   }
 
   if (iconElement === "02n" || iconElement === "03n") {
     icon.setAttribute("src", "media/cloudy-night.gif");
+    icon.setAttribute("alt", "cloudy night gif");
     quote.innerHTML = `"A cloud appears above your head, a beam of light comes shining down on you.” - A Flock of Seagulls`;
   }
 
   if (iconElement === "04d" || iconElement === "04n") {
     icon.setAttribute("src", "media/clouds.gif");
+    icon.setAttribute("alt", "cloudy gif");
     quote.innerHTML = `“Into the cloudburst overhead, I wanna get my face wet, there’s gonna be a cloudburst here,” - Thomas Dolby`;
   }
 
   if (iconElement === "09d" || iconElement === "09n") {
     icon.setAttribute("src", "media/drizzle.gif");
+    icon.setAttribute("alt", "drizzle gif");
     quote.innerHTML = `"Open the sky and let her come down, here comes the rain, here she comes again.” - The Cult`;
   }
 
   if (iconElement === "10d" || iconElement === "10n") {
     icon.setAttribute("src", "media/rain.gif");
+    icon.setAttribute("alt", "rain gif");
     quote.innerHTML = `“Here comes the rain again, falling on my head like a memory.” - Eurythmics`;
   }
 
   if (iconElement === "11d" || iconElement === "11n") {
     icon.setAttribute("src", "media/storm.gif");
+    icon.setAttribute("alt", "thunder gif");
     quote.innerHTML = `“Can't you hear, can't you hear the thunder? You better run, you better take cover.” - Men at Work`;
   }
 
   if (iconElement === "13d" || iconElement === "13n") {
     icon.setAttribute("src", "media/snow.gif");
+    icon.setAttribute("alt", "snow gif");
     quote.innerHTML = `“And the ground is frozen through, and you’re driven, like the snow, pure in heart.” - Sisters of Mercy`;
   }
 
   if (iconElement === "50d" || iconElement === "50n") {
     icon.setAttribute("src", "media/foggy.gif");
+    icon.setAttribute("alt", "foggy gif");
     quote.innerHTML = `"My head's in the clouds, yeah I get misty just holding your hand.” - Dead or Alive`;
   }
 
