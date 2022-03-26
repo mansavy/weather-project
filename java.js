@@ -292,6 +292,8 @@ function getForecast(coordinates) {
 
 function clickNY(event) {
   event.preventDefault();
+  let pop = document.querySelector(".nav");
+  pop.innerHTML = "Everybody talk about pop music!";
   let city = "New York";
   let key = "bd72cea685abd0c8d8f5b8f11becd620";
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=metric`;
@@ -300,6 +302,8 @@ function clickNY(event) {
 
 function clickLondon(event) {
   event.preventDefault();
+  let pop = document.querySelector(".nav");
+  pop.innerHTML = "Everybody talk about pop music!";
   let city = "London";
   let key = "bd72cea685abd0c8d8f5b8f11becd620";
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=metric`;
@@ -308,6 +312,8 @@ function clickLondon(event) {
 
 function clickParis(event) {
   event.preventDefault();
+  let pop = document.querySelector(".nav");
+  pop.innerHTML = "Everybody talk about pop music!";
   let city = "Paris";
   let key = "bd72cea685abd0c8d8f5b8f11becd620";
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=metric`;
@@ -316,6 +322,8 @@ function clickParis(event) {
 
 function clickMunich(event) {
   event.preventDefault();
+  let pop = document.querySelector(".nav");
+  pop.innerHTML = "Everybody talk about pop music!";
   let city = "Munich";
   let key = "bd72cea685abd0c8d8f5b8f11becd620";
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=metric`;
