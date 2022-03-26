@@ -32,17 +32,6 @@ form {
   display: inline;
 }
 
-button {
-  display: inline;
-  background-color: #f5ec2f;
-  border-radius: 5px;
-  border: none;
-  color: black;
-  padding: 5px 10px;
-  margin-left: 10px;
-  box-shadow: 10px 10px 20px rgba(234, 231, 17, 0.2);
-}
-
 footer {
   color: #e9467a;
   width: 100%;
@@ -58,6 +47,17 @@ footer {
     rgba(0, 0, 0, 0.9),
     rgba(0, 0, 0, 0)
   );
+}
+
+.button {
+  display: inline;
+  background-color: #f5ec2f;
+  border-radius: 5px;
+  border: none;
+  color: black;
+  padding: 5px 10px;
+  margin-left: 10px;
+  box-shadow: 10px 10px 20px rgba(234, 231, 17, 0.2);
 }
 
 .card {

@@ -172,7 +172,7 @@ function displayWeather(response) {
   if (iconElement === "04d" || iconElement === "04n") {
     icon.setAttribute("src", "media/clouds.gif");
     icon.setAttribute("alt", "cloudy gif");
-    quote.innerHTML = `“Into the cloudburst overhead, I wanna get my face wet, there’s gonna be a cloudburst here,” - Thomas Dolby`;
+    quote.innerHTML = `“Into the cloudburst overhead, I wanna get my face wet, there’s gonna be a cloudburst here.” - Thomas Dolby`;
   }
 
   if (iconElement === "09d" || iconElement === "09n") {
@@ -226,11 +226,6 @@ function getPosition(response) {
   let lon = response.coords.longitude;
   let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${key}`;
   axios.get(url).then(displayWeather);
-}
-
-function showPosition(event) {
-  event.preventDefault();
-  navigator.geolocation.getCurrentPosition(getPosition);
 }
 
 function formatDay(timestamp) {
@@ -345,9 +340,6 @@ nyc.addEventListener("click", clickNY);
 let form = document.querySelector("#city-search");
 form.addEventListener("submit", handleSubmit);
 
-let button = document.querySelector("button");
-button.addEventListener("click", showPosition);
-
 let fahrenheit = document.querySelector("#fahrenheit");
 fahrenheit.addEventListener("click", changeScaleF);
 
@@ -359,3 +351,5 @@ let feelsTemperature = null;
 let windSpeed = null;
 
 searchCity("Rio de janeiro");
+
+navigator.geolocation.getCurrentPosition(getPosition);
