@@ -287,7 +287,7 @@ function getForecast(coordinates) {
 
 function clickNY(event) {
   event.preventDefault();
-  let pop = document.querySelector("");
+  let pop = document.querySelector("#popMusic");
   pop.innerHTML = "Everybody talk about pop music!";
   let city = "New York";
   let key = "bd72cea685abd0c8d8f5b8f11becd620";
